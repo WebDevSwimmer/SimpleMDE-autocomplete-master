@@ -1,0 +1,25 @@
+.protocolPreview {
+	font-family: 'EB Garamond', serif;
+	background-color: white;
+	padding:1em;
+	font-size: 1.0em;
+	border-top: thin solid silver;
+}
+
+.protocolPreview h1 {
+	font-size: 2em;
+	font-family: 'EB Garamond', serif;
+	font-weight: bold;
+}
+
+.protocolPreview h2 {
+	font-size: 1.5em;
+	font-family: 'EB Garamond', serif;
+	font-weight: bold;
+}
+
+.protocolPreview h3 {
+	font-size: 1.2em;
+	font-family: 'EB Garamond', serif;
+	font-weight: bold;
+}

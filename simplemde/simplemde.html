@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Complete</title>
+	<link rel="stylesheet" href="css/simplemde.min.css">
+	<link rel="stylesheet" href="css/show-hint.css">
+	<link rel="stylesheet" href="css/jquery.textcomplete.css">
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.textcomplete.js"></script>
+	<script type="text/javascript" src="js/simplemde.min.js"></script>
+	<script src="js/jquery.ba-throttle-debounce.min.js"></script>
+</head>
+<body>
+	<form action="#">
+		<h1>Textcomplete</h1>
+		<textarea  id="draftArea1" rows="10">type @ to autocomplete</textarea>	
+		<hr/>
+		<h1>SimpleMDE</h1>
+		<textarea id="draftArea2" rows="10">This is an example</textarea>
+	</form>
+	<script>
+		$('#draftArea1').textcomplete([
+	    { // tech companies
+        words: ["florian.sperber","max.mustermann","john.doe"],
+        match: /\B@(\w*)$/,
+        search: function (term, callback) {
+          callback($.map(this.words, function (word) {
+              return word.indexOf(term) === 0 ? word : null;
+          }));
+        },
+        index: 1,
+        replace: function (word) {
+          return '@' + word + ' ';
+        }
+	    }
+		]);
+
+		var simplemde = new SimpleMDE({
+			element : $("#draftArea2")[0],
+			forceSync : true,
+			spellChecker : false,
+			tabSize : 4,
+			toolbar: ["bold", "italic", "strikethrough", "|",
+			"heading-1", "heading-2", "heading-3",  "|",
+			"unordered-list", "ordered-list", "|",
+			"link", "quote", "|",
+			"preview", ],
+		});
+
+	</script>
+</body>
+</html>
